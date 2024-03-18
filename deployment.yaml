@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-docker-integration-deployment-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-docker-integration-deployment-app
+  template:
+    metadata:
+      labels:
+        app: java-docker-integration-deployment-app
+    spec:
+      containers:
+        - name: spring-boot-container
+          image: yajatdhand/javadockerintegration
+          ports:
+            - containerPort: 8081
